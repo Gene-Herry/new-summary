@@ -1,3 +1,4 @@
+// news-summary Worker · auto-deploy test
 import { fetchAllFeeds, type FeedItem } from './feeds';
 import { summarizeCategory, type SummarizedItem } from './summarize';
 
