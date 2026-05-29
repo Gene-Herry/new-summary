@@ -1,4 +1,4 @@
-name = "news-summary"
+name = "new-summary"
 main = "worker/index.ts"
 compatibility_date = "2026-05-29"
 
