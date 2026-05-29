@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本周全球热点速览</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="header-title">
+        <span class="header-icon">📰</span>
+        本周全球热点速览
+      </h1>
+      <div class="header-meta">
+        <span class="week-range" id="weekRange"></span>
+        <span class="update-badge" id="updateBadge">
+          <span class="dot"></span>AI 精编
+        </span>
+      </div>
+    </header>
+
+    <nav class="week-nav">
+      <button class="btn btn-nav" id="prevWeek" disabled>&larr; 上一周</button>
+      <span class="current-week" id="currentWeekLabel"></span>
+      <button class="btn btn-nav" id="nextWeek" disabled>下一周 &rarr;</button>
+    </nav>
+
+    <div class="view-toggle">
+      <button class="btn btn-toggle active" data-view="all">全部领域</button>
+      <button class="btn btn-toggle" data-view="tech">💻 科技</button>
+      <button class="btn btn-toggle" data-view="finance">📈 财经</button>
+      <button class="btn btn-toggle" data-view="world">🌍 国际</button>
+      <button class="btn btn-toggle" data-view="science">🔬 科学</button>
+      <button class="btn btn-toggle" data-view="sports">⚽ 体育</button>
+      <button class="btn btn-toggle" data-view="health">🏥 健康</button>
+      <button class="btn btn-toggle" data-view="entertainment">🎬 娱乐</button>
+    </div>
+
+    <main id="content">
+      <div class="state-loading" id="stateLoading">
+        <div class="skeleton-card" style="width:100%"></div>
+        <div class="skeleton-card" style="width:92%"></div>
+        <div class="skeleton-card" style="width:88%"></div>
+        <div class="skeleton-card" style="width:95%"></div>
+        <div class="skeleton-card" style="width:85%"></div>
+      </div>
+
+      <div class="state-error hidden" id="stateError">
+        <div class="error-icon">⚠️</div>
+        <h2>加载失败</h2>
+        <p id="errorMessage">无法获取本周热点数据，请稍后重试。</p>
+        <button class="btn btn-retry" onclick="loadData()">重新加载</button>
+      </div>
+
+      <div class="state-empty hidden" id="stateEmpty">
+        <div class="empty-icon">📭</div>
+        <h2>暂无数据</h2>
+        <p>本周的热点总结尚未生成，请稍后回来查看。</p>
+      </div>
+
+      <div class="categories hidden" id="categoriesGrid"></div>
+    </main>
+
+    <footer class="footer">
+      <p>由 Cloudflare Workers 驱动 · 每周一自动更新 · 数据来源：全球主流 RSS 源</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
