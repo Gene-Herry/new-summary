@@ -205,6 +205,11 @@ export default {
         return json({ ok: true, message: '正在抓取并总结，约 30 秒后刷新此页面' });
       }
 
+      // 根路径：跳转到前端页面
+      if (path === '/' || path === '') {
+        return Response.redirect('https://news-summary.pages.dev', 302);
+      }
+
       return json({ error: 'Not Found' }, 404);
     } catch (err) {
       console.error('[api] 错误:', err);
